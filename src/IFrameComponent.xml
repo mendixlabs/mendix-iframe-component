@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.iframecomponent.IFrameComponent" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>IFrame Component</name>
+    <description>IFrames done properly</description>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABcElEQVR4nO2aoUoEURhGjyIbREQMBpPBYPQhDNstNn2BBavPYDD6Bhqsa/UZtJrMYhCRRUTQYpDxhn/nzp1P534Hplzm3jkc+Hd2YcEYYypmIXP/JnDdhUhPnAIXPxeWMg8cAbuZZ/TJRnNhUWHxl6g+QO4IpJgBLwXOnZcRsF76IVvAZ+M6L/3QIGN+ux03b6p+BBxALaDGAdQCalKvwTFwGNy/kljbAy5bG83PBHhquzkVYAc4aK0D299XX5yQEaD6EXAAtYCa6G+BfeCmpEiQM+CoywOjAWbAc5cPbslb1wdWPwIOoBZQ4wBqATUOoBZQ4wBqATUOoBZQ4wBqATUOoBZQ4wBqATUOoBZQU+IPEn2zCqwl1pcjm4cQ4C5nc/Uj4ABqATVD+AyYAq/Be++bC0MIMAEe2m6ufgQcQC2gxgHUAmqib4Er4KOkSJDQ9/t5iAZI/R1uEFQ/AtUHSI3AI3Dbt0gG72oBY4z5t3wBI8shckjElwwAAAAASUVORK5CYII=</icon>
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="Source">
+                <property key="urlExpression" type="expression" required="true" defaultValue="''">
+                    <caption>URL</caption>
+                    <description></description>
+                    <returnType type="String" />
+                </property>
+                <property key="srcExpression" type="expression" required="false" defaultValue="">
+                    <caption>src</caption>
+                    <description>If src is set, this will override the URL</description>
+                    <returnType type="String" />
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="UI">
+            <propertyGroup caption="Sizes">
+                <property key="uiSizeWidth" type="expression" required="false" defaultValue="">
+                    <caption>Width</caption>
+                    <description>String representation for width. This should either be a number for pixels (e.g. '100' = 100px) or a percentage (e.g. '100%'). Inline styles will override this value.</description>
+                    <returnType type="String" />
+                </property>
+                <property key="uiSizeHeight" type="expression" required="false" defaultValue="">
+                    <caption>Height</caption>
+                    <description>String representation for height. This should either be a number for pixels (e.g. '100' = 100px) or a percentage (e.g. '100%'). Inline styles will override this value.</description>
+                    <returnType type="String" />
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Misc">
+            <property key="miscLoading" type="enumeration" defaultValue="notSet">
+                <caption>Loading</caption>
+                <description>Indicates how the browser should load the iframe</description>
+                <enumerationValues>
+                    <enumerationValue key="notSet">&lt;NOT SET&gt;</enumerationValue>
+                    <enumerationValue key="auto">auto</enumerationValue>
+                    <enumerationValue key="eager">eager</enumerationValue>
+                    <enumerationValue key="lazy">lazy</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="miscReferrerPolicy" type="enumeration" defaultValue="notSet">
+                <caption>Referrer Policy</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="notSet">&lt;NOT SET&gt;</enumerationValue>
+                    <enumerationValue key="noReferrer">no-referrer</enumerationValue>
+                    <enumerationValue key="noReferrerWhenDowngrade">no-referrer-when-downgrade</enumerationValue>
+                    <enumerationValue key="origin">origin</enumerationValue>
+                    <enumerationValue key="orginWhenCrossOrigin">origin-when-cross-origin</enumerationValue>
+                    <enumerationValue key="sameOrigin">same-origin</enumerationValue>
+                    <enumerationValue key="strictOrigin">strict-origin</enumerationValue>
+                    <enumerationValue key="strictOriginWhenCrossOrigin">strict-origin-when-cross-origin</enumerationValue>
+                    <enumerationValue key="unsafeUrl">unsafe-url</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="miscSandbox" type="enumeration" defaultValue="notSet">
+                <caption>Sandbox</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="notSet">&lt;NOT SET&gt;</enumerationValue>
+                    <enumerationValue key="allowForms">allow-forms</enumerationValue>
+                    <enumerationValue key="allowModals">allow-modals</enumerationValue>
+                    <enumerationValue key="allowOrientationLock">allow-orientation-lock</enumerationValue>
+                    <enumerationValue key="allowPointerLock">allow-pointer-lock</enumerationValue>
+                    <enumerationValue key="allowPopups">allow-popups</enumerationValue>
+                    <enumerationValue key="allowPopupsToEscapeSandbox">allow-popups-to-escape-sandbox</enumerationValue>
+                    <enumerationValue key="allowPresentation">allow-presentation</enumerationValue>
+                    <enumerationValue key="allowSameOrigin">allow-same-origin</enumerationValue>
+                    <enumerationValue key="allowScripts">allow-scripts</enumerationValue>
+                    <enumerationValue key="allowStorageAccessByUserActivation">allow-storage-access-by-user-activation</enumerationValue>
+                    <enumerationValue key="allowTopNavigation">allow-top-navigation</enumerationValue>
+                    <enumerationValue key="allowTopNavigationByUserActivation">allow-top-navigation-by-user-activation</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="miscAllowExpression" type="expression" required="false" defaultValue="">
+                <caption>Allow</caption>
+                <description>Add optional allow values ("geolocation microphone camera midi encrypted-media and more")
+
+See iframe allow attribute on https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy/Using_Feature_Policy#the_iframe_allow_attribute</description>
+                <returnType type="String" />
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Actions">
+            <property key="onLoad" type="action" required="false">
+                <caption>onLoad</caption>
+                <description>When the iframe is loaded</description>
+            </property>
+            <property key="onMouseOver" type="action" required="false">
+                <caption>onMouseOver</caption>
+                <description></description>
+            </property>
+            <property key="onMouseOut" type="action" required="false">
+                <caption>onMouseOut</caption>
+                <description></description>
+            </property>
+
+        </propertyGroup>
+        <propertyGroup caption="Common">
+            <systemProperty key="Name"/>
+            <systemProperty key="Visibility"/>
+        </propertyGroup>
+    </properties>
+</widget>
